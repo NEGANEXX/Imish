@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Découverte Dakhla - Séjour Premium 2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables et reset */
+        :root {
+            --primary: #1a6a9e;
+            --secondary: #f0a500;
+            --accent: #2a9d8f;
+            --light: #f8f9fa;
+            --dark: #264653;
+            --text: #333;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f5f7fa;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header et navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+        
+        /* Hero section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 180px 20px 100px;
+            margin-top: 70px;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--dark);
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+        
+        .cta-button:hover {
+            background-color: #ffb700;
+            transform: translateY(-3px);
+        }
+        
+        .highlight {
+            color: var(--secondary);
+            font-weight: 700;
+        }
+        
+        /* Services section */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--dark);
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background-color: var(--secondary);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .services {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            background-color: var(--primary);
+            color: white;
+            font-size: 2.5rem;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        /* Itinerary section */
+        .itinerary {
+            padding: 100px 0;
+            background-color: #f0f5f9;
+        }
+        
+        .itinerary-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .itinerary-timeline:before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: var(--primary);
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .timeline-date {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            min-width: 140px;
+            text-align: center;
+            margin-right: 30px;
+            z-index: 1;
+        }
+        
+        .timeline-content {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            flex: 1;
+        }
+        
+        .timeline-content h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* Pricing section */
+        .pricing {
+            padding: 100px 0;
+            background-color: white;
+            text-align: center;
+        }
+        
+        .price-box {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 60px 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .price-amount {
+            font-size: 4rem;
+            font-weight: 700;
+            margin: 20px 0;
+        }
+        
+        .price-note {
+            font-style: italic;
+            margin-top: 20px;
+            opacity: 0.9;
+        }
+        
+        /* Booking section */
+        .booking {
+            padding: 100px 0;
+            background-color: #f0f5f9;
+        }
+        
+        .booking-form {
+            background-color: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e5eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            margin-bottom: 10px;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .footer-section a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .mobile-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: var(--shadow);
+                padding: 20px;
+                z-index: 999;
+            }
+            
+            .mobile-menu.active {
+                display: block;
+            }
+            
+            .mobile-menu ul {
+                list-style: none;
+            }
+            
+            .mobile-menu ul li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu ul li a {
+                color: var(--dark);
+                font-weight: 600;
+                text-decoration: none;
+                display: block;
+                padding: 10px 0;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .hero {
+                padding: 150px 20px 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .itinerary-timeline:before {
+                left: 20px;
+            }
+            
+            .timeline-date {
+                min-width: 120px;
+                margin-right: 20px;
+            }
+            
+            .booking-form {
+                padding: 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .price-amount {
+                font-size: 3rem;
+            }
+            
+            .service-icon {
+                font-size: 2rem;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header avec navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-ship"></i>
+                Dakhla Discovery
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#itineraire">Itinéraire</a></li>
+                    <li><a href="#tarifs">Tarifs</a></li>
+                    <li><a href="#reservation">Réservation</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#itineraire">Itinéraire</a></li>
+                <li><a href="#tarifs">Tarifs</a></li>
+                <li><a href="#reservation">Réservation</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero section -->
+    <section class="hero" id="accueil">
+        <div class="container">
+            <h1>Découverte Exclusive de Dakhla</h1>
+            <p>Une semaine inoubliable d'aventures, de culture et de détente du <span class="highlight">05 au 12 février 2026</span>. Conçu pour les amoureux de la nature, de la photographie et de la découverte culturelle.</p>
+            <p>Explorez les paysages époustouflants de Dakhla, vivez des expériences uniques et profitez d'un hébergement 5 étoiles.</p>
+            <a href="#reservation" class="cta-button">Réserver maintenant - 300$ par personne</a>
+        </div>
+    </section>
+
+    <!-- Services section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nos Services Premium</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Excursions en Bateau</h3>
+                        <p>Naviguez dans la baie de Dakhla, observez les dauphins et les flamants roses, et profitez de paysages côtiers à couper le souffle.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Hébergement 5 Étoiles</h3>
+                        <p>Séjournez dans un hôtel de luxe avec vue sur l'océan, spa, piscine et tout le confort moderne.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Restauration Gastronomique</h3>
+                        <p>Dégustez une cuisine locale et internationale préparée par des chefs renommés. Options végétariennes disponibles.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Activités Culturelles</h3>
+                        <p>Découvrez la riche culture sahraouie, visitez des sites historiques et participez à des ateliers artisanaux.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Photographie</h3>
+                        <p>Guidés par des photographes professionnels, capturez les moments magiques de Dakhla et ses paysages uniques.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hiking"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Activités Nature</h3>
+                        <p>Kitesurf, quad dans les dunes, randonnées dans le désert et observation d'oiseaux dans la réserve naturelle.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Itinerary section -->
+    <section class="itinerary" id="itineraire">
+        <div class="container">
+            <div class="section-title">
+                <h2>Notre Itinéraire</h2>
+            </div>
+            <div class="itinerary-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">05/02 - Jour 1</div>
+                    <div class="timeline-content">
+                        <h4>Arrivée et installation</h4>
+                        <p>Accueil à l'aéroport, transfert vers l'hôtel 5 étoiles, dîner de bienvenue et présentation du programme.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">06/02 - Jour 2</div>
+                    <div class="timeline-content">
+                        <h4>Découverte de la baie</h4>
+                        <p>Excursion en bateau dans la baie de Dakhla, observation des dauphins, déjeuner sur une île et session photo coucher de soleil.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">07/02 - Jour 3</div>
+                    <div class="timeline-content">
+                        <h4>Culture et tradition</h4>
+                        <p>Visite du marché local, atelier de cuisine traditionnelle, découverte de l'artisanat sahraoui et spectacle de musique.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">08/02 - Jour 4</div>
+                    <div class="timeline-content">
+                        <h4>Aventure dans le désert</h4>
+                        <p>Excursion en 4x4 dans les dunes, déjeuner bédouin, session de sandboarding et nuitée en campement traditionnel.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">09/02 - Jour 5</div>
+                    <div class="timeline-content">
+                        <h4>Sports nautiques</h4>
+                        <p>Journée dédiée au kitesurf avec moniteurs professionnels, pique-nique sur la plage et relaxation au spa de l'hôtel.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">10/02 - Jour 6</div>
+                    <div class="timeline-content">
+                        <h4>Photographie et nature</h4>
+                        <p>Atelier photo avec professionnel, visite de la réserve ornithologique, randonnée côtière et dîner gastronomique.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">11/02 - Jour 7</div>
+                    <div class="timeline-content">
+                        <h4>Journée libre et activités optionnelles</h4>
+                        <p>Profitez des installations de l'hôtel ou choisissez parmi nos activités optionnelles : pêche, yoga, visite d'une ferme d'huîtres.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">12/02 - Jour 8</div>
+                    <div class="timeline-content">
+                        <h4>Départ</h4>
+                        <p>Petit-déjeuner d'adieu, transfert à l'aéroport et fin de notre séjour inoubliable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing section -->
+    <section class="pricing" id="tarifs">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tarif Exceptionnel</h2>
+            </div>
+            <div class="price-box">
+                <h3>Forfait Complet - 7 Nuits / 8 Jours</h3>
+                <div class="price-amount">300$</div>
+                <p>Par personne - Tous frais compris*</p>
+                <p>Ce prix inclut l'hébergement 5 étoiles, tous les repas, les excursions, les activités et les transferts.</p>
+                <p class="price-note">* Vols internationaux non inclus. Groupe limité à 20 personnes pour une expérience personnalisée.</p>
+                <a href="#reservation" class="cta-button" style="background-color: white; color: var(--primary); margin-top: 30px;">Réserver maintenant</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking section -->
+    <section class="booking" id="reservation">
+        <div class="container">
+            <div class="section-title">
+                <h2>Réservation</h2>
+            </div>
+            <div class="booking-form">
+                <h3 style="text-align: center; margin-bottom: 30px; color: var(--primary);">Réservez votre place dès maintenant</h3>
+                <form id="reservationForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">Prénom *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Nom *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Téléphone *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Pays *</label>
+                            <select id="country" name="country" required>
+                                <option value="">Sélectionnez votre pays</option>
+                                <option value="france">France</option>
+                                <option value="belgique">Belgique</option>
+                                <option value="suisse">Suisse</option>
+                                <option value="allemagne">Allemagne</option>
+                                <option value="espagne">Espagne</option>
+                                <option value="italie">Italie</option>
+                                <option value="uk">Royaume-Uni</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="participants">Nombre de participants *</label>
+                            <select id="participants" name="participants" required>
+                                <option value="1">1 personne</option>
+                                <option value="2">2 personnes</option>
+                                <option value="3">3 personnes</option>
+                                <option value="4">4 personnes</option>
+                                <option value="5">5 personnes ou plus</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="roomType">Type de chambre *</label>
+                            <select id="roomType" name="roomType" required>
+                                <option value="double">Chambre double</option>
+                                <option value="single">Chambre simple</option>
+                                <option value="suite">Suite</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message ou demande spéciale</label>
+                        <textarea id="message" name="message" rows="4" style="width: 100%; padding: 15px; border: 2px solid #e1e5eb; border-radius: 8px; font-family: inherit;"></textarea>
+                    </div>
+                    <div class="form-group" style="text-align: center;">
+                        <button type="submit" class="cta-button" style="border: none; cursor: pointer;">Soumettre la réservation</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Dakhla Discovery</h3>
+                    <p>Votre guide pour une expérience inoubliable à Dakhla. Nous nous spécialisons dans les séjours premium pour les amoureux de la nature, de la photographie et de la culture.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Dakhla, Maroc</p>
+                    <p><i class="fas fa-phone"></i> +212 5XX-XXXXXX</p>
+                    <p><i class="fas fa-envelope"></i> contact@dakhla-discovery.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Liens rapides</h3>
+                    <a href="#accueil">Accueil</a>
+                    <a href="#services">Services</a>
+                    <a href="#itineraire">Itinéraire</a>
+                    <a href="#tarifs">Tarifs</a>
+                    <a href="#reservation">Réservation</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Dakhla Discovery. Tous droits réservés. | Séjour du 05/02/2026 au 12/02/2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Fermer le menu mobile en cliquant sur un lien
+        const mobileLinks = document.querySelectorAll('.mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Gestion du formulaire
+        const reservationForm = document.getElementById('reservationForm');
+        
+        reservationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Récupération des données du formulaire
+            const formData = new FormData(this);
+            const participantCount = formData.get('participants');
+            const pricePerPerson = 300;
+            const totalPrice = participantCount * pricePerPerson;
+            
+            // Message de confirmation
+            alert(`Merci pour votre réservation !\n\nNous avons bien reçu votre demande pour ${participantCount} participant(s).\nLe montant total serait de ${totalPrice}$.\n\nNotre équipe vous contactera dans les 24 heures pour confirmer votre réservation et procéder au paiement.`);
+            
+            // Réinitialisation du formulaire
+            reservationForm.reset();
+        });
+        
+        // Navigation fluide
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
